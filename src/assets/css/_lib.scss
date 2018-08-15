@@ -1,0 +1,76 @@
+@import 'reset';
+@import 'sprite';
+
+@mixin sprite-size($sprite) {
+    $sprite-total-width: nth($sprite, 7);
+    $sprite-total-height: nth($sprite, 8);
+    background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin sprite($sprite) {
+    @include sprite-image($sprite);
+    @include sprite-position($sprite);
+    @include sprite-size($sprite);
+    @include sprite-width($sprite);
+    @include sprite-height($sprite);
+}
+
+%-absolute-center {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+%-vertical-center {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+}
+
+%-horizontal-center {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+
+@mixin line-clip($line, $inline: false) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: normal;
+	@if ($line==1) {
+		white-space: nowrap;
+		@if ($inline) {
+			// 行内格式化上下文可能需要用 vertical-align 来调整
+			display: inline-block;
+			@if ($LegacyIE) {
+				*display: inline;
+				*zoom: 1;
+			}
+		}
+		@else {
+			display: block;
+		}
+	}
+	@else {
+		-webkit-line-clamp: $line;
+		-webkit-box-orient: vertical;
+		@if ($inline) {
+			display: inline-block;
+			@if ($LegacyIE) {
+				*display: inline;
+				*zoom: 1;
+			}
+			display: -webkit-inline-box;
+		}
+		@else {
+			display: block;
+			display: -webkit-box;
+		}
+	}
+}
+
