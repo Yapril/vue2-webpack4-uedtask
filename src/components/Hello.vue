@@ -10,6 +10,18 @@
             <p class="icon-like">Like!</p>
             <p class="icon-hate">Hate!</p>
         </section>
+        <section class="center">
+            <h2>水平垂直居中实例</h2>
+            <div class="horizontal-center">
+                <p>水平居中</p>
+            </div>
+            <div class="vertical-center">
+                <p>垂直居中</p>
+            </div>
+            <div class="absolute-center">
+                <p>绝对居中</p>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -87,9 +99,52 @@ $blackTxt: #080808;
     }
 }
 
+.center {
+    div {
+        width: 100%;
+        height: 400px;
+        background: #f8ea2b;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    p {
+        width: 100px;
+        height: 100px;
+        background: #93e2e7;
+        color: #077c8b;
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+    }
+
+    .horizontal-center {
+        height: 100px;;
+        p {
+            @extend %-horizontal-center;
+        }
+    }
+
+    .vertical-center {
+        width: 100px;
+        margin: 0 auto 20px;
+
+        p {
+            @extend %-vertical-center;
+        }
+    }
+
+    .absolute-center {
+        p {
+            @extend %-absolute-center;
+        }   
+    }
+}
+
 </style>
 
 <script>
+console.log(window.devicePixelRatio)
 export default {
     data() {
         return {
