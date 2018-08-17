@@ -4,20 +4,40 @@
             <h2>文字截断实例</h2>
             <p class="one-line">{{oneLine}}</p>
             <p class="more-line">{{moreLine}}</p>
+            <figcation class="how-to-ues">
+                使用方法：<br>
+                @include line-clip(行数n);
+            </figcation>
         </section>
         <section class="img-sprite">
             <h2>雪碧图实例</h2>
             <p class="icon-like">Like!</p>
             <p class="icon-hate">Hate!</p>
+            <figcation class="how-to-ues">
+                使用方法：<br>
+                @include sprite($图片名);
+            </figcation>
         </section>
         <section class="center">
             <h2>水平垂直居中实例</h2>
+            <figcation class="how-to-ues">
+                使用方法：<br>
+                @extend %-horizontal-center;
+            </figcation>
             <div class="horizontal-center">
                 <p>水平居中</p>
             </div>
+            <figcation class="how-to-ues">
+                使用方法：<br>
+                @extend %-vertical-center;
+            </figcation>
             <div class="vertical-center">
                 <p>垂直居中</p>
             </div>
+            <figcation class="how-to-ues">
+                使用方法：<br>
+                @extend %-absolute-center;
+            </figcation>
             <div class="absolute-center">
                 <p>绝对居中</p>
             </div>
@@ -140,7 +160,13 @@ $blackTxt: #080808;
         }   
     }
 }
-
+.how-to-ues {
+    display: block;
+    font-size: 28px;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px dashed #444;
+}
 </style>
 
 <script>
